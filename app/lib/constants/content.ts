@@ -85,7 +85,7 @@ export const products = [
       "Commercial buildings",
       "Agricultural structures"
     ],
-    image: "https://lh3.googleusercontent.com/sitesv/APaQ0SRvir3OzBjZ3FkqN9ETDQNQsnrjgEniwM6jCrDVQ2js7ZuqdcYm4TnnvGqsLwARNeYxFwQZhBTeQcPPfTmzMHZex2FRfRTpORnQ_7NjZVZtENDCBDDESaQ_632ijXReBljOzJDfbl3CDFBMxaGbND1NMYgZaOsQgXRQTmfWyF0EktkQZsD9MrqC3mLzVH2Q1eu3e8mTyfTgaPL9DUVHZSIcfouc0qaPQKuCCKY=w800"
+    image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80&auto=format"
   },
   {
     id: 2,
@@ -101,7 +101,7 @@ export const products = [
       "Schools and institutions",
       "Public facilities"
     ],
-    image: "https://lh3.googleusercontent.com/sitesv/APaQ0SRvir3OzBjZ3FkqN9ETDQNQsnrjgEniwM6jCrDVQ2js7ZuqdcYm4TnnvGqsLwARNeYxFwQZhBTeQcPPfTmzMHZex2FRfRTpORnQ_7NjZVZtENDCBDDESaQ_632ijXReBljOzJDfbl3CDFBMxaGbND1NMYgZaOsQgXRQTmfWyF0EktkQZsD9MrqC3mLzVH2Q1eu3e8mTyfTgaPL9DUVHZSIcfouc0qaPQKuCCKY=w800"
+    image: "https://images.unsplash.com/photo-1632778149544-9b239e37debb?w=800&q=80&auto=format"
   },
   {
     id: 3,
@@ -117,9 +117,10 @@ export const products = [
       "Water management systems",
       "Structural support"
     ],
-    image: "https://lh3.googleusercontent.com/sitesv/APaQ0SRvir3OzBjZ3FkqN9ETDQNQsnrjgEniwM6jCrDVQ2js7ZuqdcYm4TnnvGqsLwARNeYxFwQZhBTeQcPPfTmzMHZex2FRfRTpORnQ_7NjZVZtENDCBDDESaQ_632ijXReBljOzJDfbl3CDFBMxaGbND1NMYgZaOsQgXRQTmfWyF0EktkQZsD9MrqC3mLzVH2Q1eu3e8mTyfTgaPL9DUVHZSIcfouc0qaPQKuCCKY=w800"
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80&auto=format"
   }
 ];
+
 
 
 export const useCases = [

@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { staggerContainer, fadeInUp } from '@/app/lib/utils/animations';
 import { faqs } from '@/app/lib/constants/content';
+import { ChevronDown } from 'lucide-react';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-20 md:py-28 lg:py-32 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -17,11 +18,17 @@ export default function FAQ() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-16"
         >
+          <motion.span 
+            variants={fadeInUp}
+            className="inline-block px-4 py-1.5 bg-brand-primary/10 text-brand-primary text-sm font-semibold rounded-full mb-4"
+          >
+            FAQ
+          </motion.span>
           <motion.h2 
             variants={fadeInUp}
-            className="text-mobile-h1 md:text-desktop-h1 font-bold text-gray-900 mb-4"
+            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight"
           >
             Frequently Asked Questions
           </motion.h2>
@@ -29,7 +36,7 @@ export default function FAQ() {
             variants={fadeInUp}
             className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Everything you need to know about our metal profile sheets and services
+            Everything you need to know about our metal profile sheets
           </motion.p>
         </motion.div>
 
@@ -45,26 +52,21 @@ export default function FAQ() {
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
+              className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100"
             >
               {/* Question Button */}
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors focus-ring"
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
               >
-                <span className="font-semibold text-gray-900 text-base md:text-lg pr-4">
+                <span className="font-heading font-semibold text-gray-900 text-base md:text-lg pr-4">
                   {faq.question}
                 </span>
-                <svg
-                  className={`w-5 h-5 text-industrial-blue transition-transform flex-shrink-0 ${
+                <ChevronDown 
+                  className={`w-5 h-5 text-brand-primary transition-transform flex-shrink-0 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                />
               </button>
 
               {/* Answer */}
@@ -74,7 +76,7 @@ export default function FAQ() {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="px-6 pb-5 text-gray-700 text-sm md:text-base leading-relaxed border-t border-gray-100 pt-4"
+                  className="px-6 pb-5 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100 pt-4"
                 >
                   {faq.answer}
                 </motion.div>
@@ -94,7 +96,7 @@ export default function FAQ() {
           <p className="text-gray-600 mb-4">Still have questions?</p>
           <a
             href="#contact"
-            className="inline-block px-8 py-4 bg-industrial-blue text-white font-semibold rounded-xl hover:bg-blue-700 transition-all active:scale-95 min-h-[56px]"
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-brand-primary text-black font-semibold rounded-lg shadow-md hover:bg-brand-primary/90 hover:shadow-lg transition-all active:scale-95"
           >
             Contact Us
           </a>
