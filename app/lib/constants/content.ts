@@ -1,7 +1,7 @@
 export const businessInfo = {
   name: "Sudarshana Profile Sheets",
-  fullName: "Sudarshana Profile Sheets Pvt. Ltd.",
-  tagline: "Crafting Excellence in Metal Solutions",
+  fullName: "Sudarshana Profile Sheets",
+  tagline: "Crafting Excellence in Roofing Solutions",
   location: "Raipur, Chhattisgarh",
   phone: "+91 7000892760",
   phoneAlt: "+91 8770541639",
@@ -17,7 +17,7 @@ export const businessInfo = {
 export const heroContent = {
   question: "What is Sudarshana Profile Sheets?",
   answer: "Leading manufacturer of high-quality colour-coated metal profile sheets in Raipur, Chhattisgarh, setting the standard for durability and excellence in construction materials",
-  headline: "Crafting Excellence in Metal Solutions",
+  headline: "Crafting Excellence in Roofing Solutions",
   subheadline: "Unlocking Possibilities with Precision Craftsmanship in Raipur, Chhattisgarh. We engineer innovative, custom-crafted trapezoidal color-coated metal profile sheets and comprehensive shed accessories.",
   cta: {
     primary: "Get Quote",
