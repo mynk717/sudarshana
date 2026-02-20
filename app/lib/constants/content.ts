@@ -6,7 +6,7 @@ export const businessInfo = {
   phone: "+91 7000892760",
   phoneAlt: "+91 8770541639",
   email: "contact@sudarshanaprofile.com",
-  address: "Kushalpur Chowk, Raipur, Chhattisgarh, India - 490001",
+  address: "Kesari Bagicha Road, Bhatagaon, Raipur, Chhattisgarh 492013",
   addressAlt: "Shop No 1, Keshri Bagicha Road, Bhatagaon, Raipur - 492001",
   gstNumber: "22AQZPS1465L1Z3",
   establishedYear: "2023",
@@ -85,7 +85,7 @@ export const products = [
       "Commercial buildings",
       "Agricultural structures"
     ],
-    image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80&auto=format"
+    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -101,7 +101,7 @@ export const products = [
       "Schools and institutions",
       "Public facilities"
     ],
-    image: "https://images.unsplash.com/photo-1632778149544-9b239e37debb?w=800&q=80&auto=format"
+    image: "/images/products/image.png"
   },
   {
     id: 3,
@@ -117,7 +117,7 @@ export const products = [
       "Water management systems",
       "Structural support"
     ],
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80&auto=format"
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop"
   }
 ];
 

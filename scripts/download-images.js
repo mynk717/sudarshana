@@ -8,7 +8,7 @@ const images = {
   'logo.png': 'https://lh3.googleusercontent.com/sitesv/APaQ0SS-DS7i1DSHAdUtdjNQ74uGavmcE_Ezi0lTupCP3PFPV7gl2RGA2WNZ5B3SL4Bv7TQZGsXMVYR_fuQ3Fmp3JVgeK-kL87AozwZ-RTVNhm6ySFDLJbZzeDS9Bu7cpFCCLPnu4hAhDjJtlub4Ekkle7m2wfOKAjvHccW_qA7-zFEGTam-NmfHhYYyYTs=w400',
   
   // Hero carousel images (original Google Site has multiple)
-  'hero/slide-1.jpg': 'https://lh3.googleusercontent.com/sitesv/APaQ0SRvir3OzBjZ3FkqN9ETDQNQsnrjgEniwM6jCrDVQ2js7ZuqdcYm4TnnvGqsLwARNeYxFwQZhBTeQcPPfTmzMHZex2FRfRTpORnQ_7NjZVZtENDCBDDESaQ_632ijXReBljOzJDfbl3CDFBMxaGbND1NMYgZaOsQgXRQTmfWyF0EktkQZsD9MrqC3mLzVH2Q1eu3e8mTyfTgaPL9DUVHZSIcfouc0qaPQKuCCKY=w1920',
+  'hero/slide-1.jpg': 'public/images/hero/image.png',
   
   // Products/Projects (use the main image for now, you can add more)
   'products/profile-sheets-1.jpg': 'https://lh3.googleusercontent.com/sitesv/APaQ0SRvir3OzBjZ3FkqN9ETDQNQsnrjgEniwM6jCrDVQ2js7ZuqdcYm4TnnvGqsLwARNeYxFwQZhBTeQcPPfTmzMHZex2FRfRTpORnQ_7NjZVZtENDCBDDESaQ_632ijXReBljOzJDfbl3CDFBMxaGbND1NMYgZaOsQgXRQTmfWyF0EktkQZsD9MrqC3mLzVH2Q1eu3e8mTyfTgaPL9DUVHZSIcfouc0qaPQKuCCKY=w1280',

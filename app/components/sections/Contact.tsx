@@ -194,16 +194,19 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Google Map Placeholder */}
-            <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden border border-gray-300">
-              <div className="w-full h-full flex items-center justify-center text-gray-500">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 mx-auto mb-3 text-gray-400" />
-                  <p className="text-sm font-medium">Google Maps Integration</p>
-                  <p className="text-xs mt-1">Kushalpur Chowk, Raipur</p>
-                </div>
-              </div>
-            </div>
+         {/* Google Map Integration */}
+<div className="aspect-video bg-gray-200 rounded-xl overflow-hidden border border-gray-300 shadow-sm">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.862192962125!2d81.61288567431113!3d21.19763268195888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd65c7b55cb7%3A0x1259a6ccff418796!2sSudarshana%20Profile%20Sheets!5e0!3m2!1sen!2sin!4v1771581026234!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen={true}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Sudarshana Profile Sheets Location"
+  ></iframe>
+</div>
           </motion.div>
         </div>
       </div>
