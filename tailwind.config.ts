@@ -20,6 +20,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         heading: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
+        brand: ['var(--font-libre)', 'Georgia', 'serif'],
       },
       fontSize: {
         // More professional, less AI-generated scale

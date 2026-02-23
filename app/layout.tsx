@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Manrope, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { defaultMetadata } from "./lib/constants/seo";
 import { organizationSchema, localBusinessSchema } from "./lib/schemas/organization";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 
-// Modern, professional fonts for industrial B2B
+const libre = Libre_Baskerville({
+    subsets: ["latin"],
+    display: "swap",
+    variable: "--font-libre",
+    weight: ["400", "700"],
+    style: ["normal", "italic"],
+  });
+
 const manrope = Manrope({ 
   subsets: ["latin"], 
   display: "swap",
@@ -29,23 +36,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
+    <html lang="en" className={`${libre.variable} ${manrope.variable} ${inter.variable}`}>
       <head>
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       </head>
       <body className={`${inter.className} antialiased`}>
         <Header />
-        <main className="min-h-screen pt-16">
-          {children}
-        </main>
+        <main className="min-h-screen pt-16">{children}</main>
         <Footer />
       </body>
     </html>

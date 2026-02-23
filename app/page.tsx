@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Sudarshana Profile Sheets",
     images: [
       {
-        url: "public/images/products/colorSheetHome.png",
+        url: "/images/products/colorSheetHome.png",
         width: 1200,
         height: 630,
         alt: "Sudarshana Profile Sheets - Metal Roofing Manufacturing"
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sudarshana Profile Sheets - Premium Metal Roofing Solutions",
     description: "Leading manufacturer of metal profile sheets in Raipur. 15+ years warranty.",
-    images: ["public/images/products/colorSheetHome.png"],
+    images: ["/images/products/colorSheetHome.png"],
   },
   alternates: {
     canonical: "https://sudarshanaprofile.com",
