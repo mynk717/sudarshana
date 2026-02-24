@@ -117,6 +117,16 @@ export default function Footer() {
                   {businessInfo.email}
                 </a>
               </li>
+              <li className="flex items-center">
+      <span className="inline-flex items-center gap-2">
+        <span className="text-xs font-semibold uppercase tracking-wide text-brand-secondary">
+          GSTIN
+        </span>
+        <span className="text-sm font-medium">
+          {businessInfo.gstNumber}
+        </span>
+      </span>
+    </li>
             </ul>
           </div>
         </div>

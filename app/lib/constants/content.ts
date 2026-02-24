@@ -3,6 +3,7 @@ export const businessInfo = {
   fullName: "Sudarshana Profile Sheets",
   tagline: "Crafting Excellence in Roofing Solutions",
   location: "Raipur, Chhattisgarh",
+  dealerTagline: "Authorised dealer and manufacturer of TATA Steel and APL Apollo colour coated profile sheets.",
   phone: "+91 7000892760",
   phoneAlt: "+91 8770541639",
   email: "contact@sudarshanaprofile.com",
@@ -16,7 +17,7 @@ export const businessInfo = {
 
 export const heroContent = {
   question: "What is Sudarshana Profile Sheets?",
-  answer: "Leading manufacturer of high-quality colour-coated metal profile sheets in Raipur, Chhattisgarh, setting the standard for durability and excellence in construction materials",
+  answer: "Leading manufacturer of high-quality colour-coated metal profile sheets in Raipur, Chhattisgarh, setting the standard for durability and excellence in construction materials.",
   headline: "Crafting Excellence in Roofing Solutions",
   subheadline: "Unlocking Possibilities with Precision Craftsmanship in Raipur, Chhattisgarh. We engineer innovative, custom-crafted trapezoidal color-coated metal profile sheets and comprehensive shed accessories.",
   cta: {
@@ -85,7 +86,7 @@ export const products = [
       "Commercial buildings",
       "Agricultural structures"
     ],
-    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80&auto=format&fit=crop"
+    image: "/images/products/trapezoidal.png"
   },
   {
     id: 2,
@@ -101,7 +102,7 @@ export const products = [
       "Schools and institutions",
       "Public facilities"
     ],
-    image: "/images/products/image.png"
+    image: "/images/products/color-coated.png"
   },
   {
     id: 3,
@@ -118,7 +119,102 @@ export const products = [
       "Structural support"
     ],
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop"
-  }
+  },
+  {
+    id: 4,
+    name: "TATA Durashine® Colour Coated Sheets",
+    category: "Premium Roofing",
+    description:
+      "Official TATA Durashine® colour coated profile sheets for residential, commercial and industrial roofing with superior corrosion resistance and long life.",
+    thickness: "0.35mm - 0.60mm",
+    warranty: "Up to 15 years* (as per TATA Durashine® warranty terms)",
+    applications: [
+      "Residential roofing",
+      "Showrooms and malls",
+      "Industrial sheds",
+      "Institutions and public buildings",
+    ],
+    image: "/images/products/tata-durashine.png",
+  },
+  {
+    id: 5,
+    name: "TATA Durashine® SuPreme / Prisma / Colorbond",
+    category: "Premium Roofing",
+    description:
+      "High-performance TATA Durashine® SuPreme, Prisma and Colorbond profiles offering advanced paint systems, colour retention and enhanced durability.",
+    thickness: "0.45mm - 0.60mm (profile dependent)",
+    colors: "Wide TATA colour range",
+    applications: [
+      "Architectural roofing",
+      "Premium industrial projects",
+      "Long-span sheds",
+      "High-end residential projects",
+    ],
+    image: "/images/products/tata-supreme-prisma-colorbond.png",
+  },
+  {
+    id: 6,
+    name: "TATA Satin Silver Roofing Sheets",
+    category: "Premium Roofing",
+    description:
+      "DURASHINE® Satin Silver finish roofing sheets designed for cooler interiors and excellent corrosion resistance in demanding climates.",
+    thickness: "0.35mm - 0.60mm",
+    applications: [
+      "Godowns and warehouses",
+      "Poultry and dairy farms",
+      "Factory sheds",
+      "Cold storage buildings",
+    ],
+    image: "/images/products/tata-satin-silver.png",
+  },
+
+  // New: APL Apollo ranges (Jumbo, RoofTuff, Coral, Navrang)
+  {
+    id: 7,
+    name: "APL Apollo Jumbo Profile Sheets",
+    category: "Roofing Solutions",
+    description:
+      "APL Apollo Jumbo high-strength colour coated profile sheets suitable for large span roofing and heavy-duty industrial applications.",
+    thickness: "Various gauges (dealer specification)",
+    applications: [
+      "Large industrial sheds",
+      "Steel warehouses",
+      "Logistics hubs",
+      "Heavy engineering units",
+    ],
+    image: "/images/products/apl-jumbo.jpeg",
+  },
+  {
+    id: 8,
+    name: "APL Apollo RoofTuff Sheets",
+    category: "Roofing Solutions",
+    description:
+      "APL Apollo RoofTuff colour coated sheets with robust profile and advanced coating system for long-lasting, leak-proof roofing.",
+    thickness: "Various gauges",
+    applications: [
+      "Industrial roofing",
+      "Commercial sheds",
+      "Service centers",
+      "Workshops",
+    ],
+    image: "/images/products/apl-rooftuff.png",
+  },
+  {
+    id: 9,
+    name: "APL Apollo Coral / Navrang Sheets",
+    category: "Premium Roofing",
+    description:
+      "Decorative APL Apollo Coral and Navrang colour coated roofing sheets offering vibrant colours and reliable protection for demanding weather.",
+    thickness: "0.50mm (typical)",
+    colors: "Multi-colour decorative range",
+    applications: [
+      "Commercial complexes",
+      "Showrooms and façades",
+      "Farm houses",
+      "Architectural projects",
+    ],
+    image: "/images/products/apl-coral-navrang.png",
+  },
 ];
 
 
