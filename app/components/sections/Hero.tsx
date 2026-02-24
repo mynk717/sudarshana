@@ -117,12 +117,12 @@ export default function Hero() {
             variants={slideInRight}
             className="hidden lg:block relative"
           >
-            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] max-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src={images.hero.main}
                 alt="Custom trapezoidal colour-coated metal profile sheets"
                 fill
-                className="object-cover"
+                className="object-contain sm:object-cover"
                 priority
                 sizes="(max-width: 1024px) 0vw, 50vw"
               />

@@ -131,6 +131,16 @@ export default function Footer() {
           </div>
         </div>
 
+{/* Legal column */}
+<div>
+  <h3 className="text-white font-heading font-bold mb-4 text-lg">Legal</h3>
+  <ul className="space-y-2 text-sm">
+    <li><a href="/privacy" className="hover:text-brand-secondary transition-colors">Privacy Policy</a></li>
+    <li><a href="/terms" className="hover:text-brand-secondary transition-colors">Terms of Service</a></li>
+    <li><a href="/about" className="hover:text-brand-secondary transition-colors">About Us</a></li>
+  </ul>
+</div>
+
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
