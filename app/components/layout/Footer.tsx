@@ -73,6 +73,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/blog" className="hover:text-brand-secondary transition-colors">
+                  Blog
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="hover:text-brand-secondary transition-colors">
                   Contact
                 </a>

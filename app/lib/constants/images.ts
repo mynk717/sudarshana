@@ -7,9 +7,9 @@ export const images = {
     // Industrial metal roofing/construction
     main: "/images/products/colorSheetHome.png",
     slides: [
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1920&q=80&auto=format", // Metal construction
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80&auto=format", // Steel structure
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80&auto=format", // Construction site
+      "/images/hero/ridgeSlider1.png", // Metal construction
+      "/images/hero/shedSlider3.png", // Steel structure
+      "/images/hero/shedSlider2.png", // Construction site
     ]
   },
   

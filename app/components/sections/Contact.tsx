@@ -1,11 +1,31 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { staggerContainer, fadeInUp } from '@/app/lib/utils/animations';
 import { businessInfo } from '@/app/lib/constants/content';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+   };
+
+   const handleSubmit = (e: React.FormEvent) => {
+     e.preventDefault();
+     const text = 
+ `Hello Sudarshana Profile Sheets,
+
+ 👤 Name: ${formData.name}
+ 📧 Email: ${formData.email}
+ 📞 Phone: ${formData.phone}
+ 💬 Project Details: ${formData.message}
+
+ Sent via sudarshanaprofile.com`;
+     window.open(`https://wa.me/917000892760?text=${encodeURIComponent(text)}`, "_blank");
+   };
   return (
     <section id="contact" className="py-20 md:py-28 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +66,7 @@ export default function Contact() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -57,6 +77,7 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
+                  value={formData.name} onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all placeholder:text-gray-400"
                   placeholder="Your name"
                 />
@@ -72,6 +93,7 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
+                  value={formData.name} onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all placeholder:text-gray-400"
                   placeholder="your.email@example.com"
                 />
@@ -86,6 +108,7 @@ export default function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.name} onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all placeholder:text-gray-400"
                   placeholder="+91 XXXXX XXXXX"
                 />
@@ -100,6 +123,7 @@ export default function Contact() {
                   id="message"
                   name="message"
                   required
+                  value={formData.name} onChange={handleChange}
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none placeholder:text-gray-400"
                   placeholder="Tell us about your project requirements..."
@@ -107,13 +131,16 @@ export default function Contact() {
               </div>
 
               {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full px-8 py-4 bg-brand-primary text-white font-semibold rounded-lg hover:bg-brand-primary/90 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-              >
-                Send Message
-                <Send className="w-5 h-5" />
-              </button>
+<button
+  type="submit"
+  className="w-full px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all active:scale-95 flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+>
+  Send via WhatsApp
+  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white flex-shrink-0">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.135.561 4.14 1.541 5.875L0 24l6.322-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.007-1.374l-.36-.214-3.722.896.934-3.619-.235-.373A9.796 9.796 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/>
+  </svg>
+</button>
             </form>
           </motion.div>
 

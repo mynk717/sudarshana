@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { fadeInUp, slideInLeft, slideInRight } from '@/app/lib/utils/animations';
 import { heroContent, businessInfo } from '@/app/lib/constants/content';
 import Image from 'next/image';
@@ -8,6 +9,15 @@ import { images } from '@/app/lib/constants/images';
 import { ArrowRight, Shield, CheckCircle2 } from 'lucide-react';
 
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = [images.hero.main, ...images.hero.slides].length;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [totalSlides]);
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
       {/* Background Pattern */}
@@ -111,33 +121,61 @@ export default function Hero() {
           </motion.div>
 
           {/* Right Visual */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={slideInRight}
-            className="hidden lg:block relative"
-          >
-            <div className="relative aspect-[4/3] max-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src={images.hero.main}
-                alt="Custom trapezoidal colour-coated metal profile sheets"
-                fill
-                className="object-contain sm:object-cover"
-                priority
-                sizes="(max-width: 1024px) 0vw, 50vw"
-              />
-              
-              {/* Floating Badge */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-8 right-8 bg-white p-5 rounded-xl shadow-lg"
-              >
-                <p className="text-3xl font-bold text-brand-primary">15+</p>
-                <p className="text-xs text-gray-600 font-medium">Years Warranty</p>
-              </motion.div>
-            </div>
-          </motion.div>
+<motion.div
+  initial="hidden"
+  animate="visible"
+  variants={slideInRight}
+  className="hidden lg:block relative"
+>
+  <div className="relative aspect-[4/3] max-h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
+    
+    {/* Slider Images */}
+    {[images.hero.main, ...images.hero.slides].map((slide, index) => (
+      <motion.div
+        key={index}
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: index === currentSlide ? 1 : 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Image
+          src={slide}
+          alt={`Sudarshana Profile Sheets roofing solution ${index + 1}`}
+          fill
+          className={index === 0 ? "object-contain" : "object-cover"}
+          priority={index === 0}
+          sizes="50vw"
+        />
+      </motion.div>
+    ))}
+
+    {/* Dot Navigation */}
+    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+      {[images.hero.main, ...images.hero.slides].map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentSlide(index)}
+          className={`rounded-full transition-all duration-300 ${
+            index === currentSlide
+              ? "w-6 h-3 bg-white shadow-lg"
+              : "w-3 h-3 bg-white/50 hover:bg-white"
+          }`}
+        />
+      ))}
+    </div>
+
+    {/* Floating Badge */}
+    <motion.div
+      animate={{ y: [0, -10, 0] }}
+      transition={{ duration: 3, repeat: Infinity }}
+      className="absolute top-8 right-8 bg-white p-5 rounded-xl shadow-lg z-10"
+    >
+      <p className="text-3xl font-bold text-brand-primary">15+</p>
+      <p className="text-xs text-gray-600 font-medium">Years Warranty</p>
+    </motion.div>
+  </div>
+</motion.div>
+
 
         </div>
       </div>
