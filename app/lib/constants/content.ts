@@ -1,3 +1,19 @@
+export type Product = {
+  id: number;
+  name: string;
+  category: string;
+  description: string;
+  image: string;
+  applications: string[];
+  colors?: string;
+  coating?: string;
+  widths?: string;
+  range?: string;
+  materials?: string;
+  features?: string;
+  // thickness and warranty intentionally removed per design decision
+};
+
 export const businessInfo = {
   name: "Sudarshana Profile Sheets",
   fullName: "Sudarshana Profile Sheets",
@@ -29,9 +45,9 @@ export const heroContent = {
 export const services = [
   {
     id: 1,
-    title: "Custom Metal Profile Sheets",
-    shortAnswer: "What sizes of metal profile sheets are available?",
-    description: "We specialize in crafting metal profile sheets in various sizes and shapes, focusing on meeting your unique project needs. Custom dimensions tailored to your specifications.",
+    title: "Custom Roofing Sheets",
+    shortAnswer: "What sizes of Roofing sheets are available?",
+    description: "We specialize in crafting roofing sheets in various sizes and shapes, focusing on meeting your unique project needs. Custom dimensions tailored to your specifications.",
     features: [
       "Various sizes and shapes",
       "Custom dimensions available",
@@ -49,11 +65,10 @@ export const services = [
     features: [
       "Aluminum-zinc coating protection",
       "Rust and corrosion resistant",
-      "Weather endurance",
-      "15+ years durability"
+      "Weather endurance"
     ],
     icon: "🎨",
-    stat: "15+ years rust protection guaranteed"
+    stat: "Rust protection with Aluminum-zinc coating"
   },
   {
     id: 3,
@@ -71,13 +86,12 @@ export const services = [
   }
 ];
 
-export const products = [
+export const products: Product[] = [
   {
     id: 1,
     name: "Trapezoidal Galvanised Profile Sheets",
     category: "Roofing Solutions",
     description: "High-grade galvanised steel sheets with trapezoidal profile for enhanced structural integrity. Coated with Aluminum-zinc (AZ-70/AZ-150 gsm) for superior rust resistance.",
-    thickness: "0.35mm - 0.80mm",
     widths: "Custom sizes available",
     coating: "Aluminum-zinc (AZ-70/AZ-150 gsm)",
     applications: [
@@ -93,9 +107,7 @@ export const products = [
     name: "Colour-Coated Metal Roofing Sheets",
     category: "Premium Roofing",
     description: "Aesthetically designed colour-coated sheets with weather-resistant properties. Perfect for residential and commercial applications with visual appeal.",
-    thickness: "Various gauges",
     colors: "Custom RAL colors",
-    warranty: "15+ years against rust",
     applications: [
       "Houses and cottages",
       "Garages and sheds",
@@ -126,8 +138,6 @@ export const products = [
     category: "Premium Roofing",
     description:
       "Official TATA Durashine® colour coated profile sheets for residential, commercial and industrial roofing with superior corrosion resistance and long life.",
-    thickness: "0.35mm - 0.60mm",
-    warranty: "Up to 15 years* (as per TATA Durashine® warranty terms)",
     applications: [
       "Residential roofing",
       "Showrooms and malls",
@@ -142,7 +152,6 @@ export const products = [
     category: "Premium Roofing",
     description:
       "High-performance TATA Durashine® SuPreme, Prisma and Colorbond profiles offering advanced paint systems, colour retention and enhanced durability.",
-    thickness: "0.45mm - 0.60mm (profile dependent)",
     colors: "Wide TATA colour range",
     applications: [
       "Architectural roofing",
@@ -158,7 +167,6 @@ export const products = [
     category: "Premium Roofing",
     description:
       "DURASHINE® Satin Silver finish roofing sheets designed for cooler interiors and excellent corrosion resistance in demanding climates.",
-    thickness: "0.35mm - 0.60mm",
     applications: [
       "Godowns and warehouses",
       "Poultry and dairy farms",
@@ -175,7 +183,6 @@ export const products = [
     category: "Roofing Solutions",
     description:
       "APL Apollo Jumbo high-strength colour coated profile sheets suitable for large span roofing and heavy-duty industrial applications.",
-    thickness: "Various gauges (dealer specification)",
     applications: [
       "Large industrial sheds",
       "Steel warehouses",
@@ -190,7 +197,6 @@ export const products = [
     category: "Roofing Solutions",
     description:
       "APL Apollo RoofTuff colour coated sheets with robust profile and advanced coating system for long-lasting, leak-proof roofing.",
-    thickness: "Various gauges",
     applications: [
       "Industrial roofing",
       "Commercial sheds",
@@ -201,11 +207,10 @@ export const products = [
   },
   {
     id: 9,
-    name: "APL Apollo Coral / Navrang Sheets",
+    name:"APL Apollo Coral Sheets",
     category: "Premium Roofing",
     description:
-      "Decorative APL Apollo Coral and Navrang colour coated roofing sheets offering vibrant colours and reliable protection for demanding weather.",
-    thickness: "0.50mm (typical)",
+      "Decorative APL Apollo Coral colour coated roofing sheets offering vibrant colours and reliable protection for demanding weather.",    
     colors: "Multi-colour decorative range",
     applications: [
       "Commercial complexes",
@@ -214,6 +219,21 @@ export const products = [
       "Architectural projects",
     ],
     image: "/images/products/apl-coral-navrang.png",
+  },
+  {
+    id: 10,
+    name: "APL Apollo Coil",
+    category: "Roofing Solutions",
+    description:
+      "APL Apollo colour coated coil for roll-forming and custom profile sheet production. High-grade base metal with advanced paint system for excellent forming properties and durability.",
+    colors: "Multiple colour options",
+    applications: [
+      "Profile sheet manufacturing",
+      "Custom roll-forming",
+      "Industrial roofing",
+      "Commercial construction",
+    ],
+    image: "/images/products/apl-coil.png",
   },
 ];
 
@@ -266,14 +286,6 @@ export const features = [
 ];
 
 export const faqs = [
-  {
-    question: "What sizes and thicknesses of profile sheets do you offer?",
-    answer: "We manufacture sheets ranging from 0.35mm to 0.80mm thickness with custom widths and lengths. Our trapezoidal profile sheets come in various sizes to accommodate different project specifications."
-  },
-  {
-    question: "What is the warranty on colour-coated sheets?",
-    answer: "Our colour-coated metal profile sheets come with 15+ years warranty against rust, corrosion, and coating defects when properly maintained. The Aluminum-zinc (AZ-70/AZ-150 gsm) coating ensures long-lasting protection."
-  },
   {
     question: "Do you provide installation and shed construction services?",
     answer: "Yes, we provide complete turnkey shed construction services across Chhattisgarh and PAN India. Our lightweight sheets ensure easy and quick installation with reduced labour requirements."

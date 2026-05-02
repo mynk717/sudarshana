@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeInUp } from '@/app/lib/utils/animations';
-import { products } from '@/app/lib/constants/content';
+import { products, type Product } from '@/app/lib/constants/content';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Layers, Palette, Wrench } from 'lucide-react';
 
@@ -41,7 +41,7 @@ export default function Products() {
             variants={fadeInUp}
             className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Metal profile sheets and accessories engineered for durability, strength, and lasting value.
+            Roofing sheets and accessories engineered for durability, strength, and lasting value.
           </motion.p>
         </motion.div>
 
@@ -53,14 +53,14 @@ export default function Products() {
           variants={staggerContainer}
           className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8"
         >
-          {products.map((product, index) => (
+          {products.map((product: Product, index: number) => (
             <motion.div
               key={product.id}
               variants={fadeInUp}
               custom={index}
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 active:scale-[0.99] transition-transform duration-150"
             >
-              {/* Image — taller on mobile for visual impact */}
+              {/* Image */}
               <div className="relative w-full h-52 sm:h-48 overflow-hidden bg-gray-100">
                 <Image
                   src={product.image}
@@ -69,7 +69,7 @@ export default function Products() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                {/* Category badge overlaid on image */}
+                {/* Category badge */}
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-primary text-xs font-semibold rounded-full shadow-sm">
                     {categoryIcons[product.category]}
@@ -87,26 +87,16 @@ export default function Products() {
                   {product.description}
                 </p>
 
-                {/* Specs — horizontal pill row on mobile */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {product.thickness && (
-                    <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full">
-                      {product.thickness}
-                    </span>
-                  )}
-                  {product.warranty && (
-                    <span className="px-3 py-1 bg-green-50 text-green-700 text-xs font-medium rounded-full">
-                      ✓ {product.warranty}
-                    </span>
-                  )}
-                  {product.colors && (
+                {/* Specs — only colors pill remains (thickness & warranty removed) */}
+                {product.colors && (
+                  <div className="flex flex-wrap gap-2 mb-4">
                     <span className="px-3 py-1 bg-orange-50 text-orange-700 text-xs font-medium rounded-full">
                       {product.colors}
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
 
-                {/* Applications as checkmarks */}
+                {/* Applications */}
                 <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 mb-5">
                   {product.applications.slice(0, 4).map((app, idx) => (
                     <div key={idx} className="flex items-center gap-1.5">

@@ -44,8 +44,8 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full mb-6 border border-green-100"
             >
               <Shield className="w-4 h-4" />
-              <span className="text-sm font-semibold">15+ Years Warranty • ISO Certified</span>
-            </motion.div>
+              <span className="text-sm font-semibold">ISO Certified • Trusted Since 2023</span>
+              </motion.div>
 
             {/* Main Heading */}
             <motion.h1 
@@ -103,15 +103,11 @@ export default function Hero() {
             {/* Stats */}
             <motion.div 
               variants={fadeInUp}
-              className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200"
+              className="grid grid-cols-2 gap-6 mt-12 pt-8 border-t border-gray-200"
             >
               <div>
                 <p className="text-3xl font-bold text-brand-primary">500+</p>
                 <p className="text-sm text-gray-600 mt-1">Projects Done</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-brand-primary">15+</p>
-                <p className="text-sm text-gray-600 mt-1">Years Warranty</p>
               </div>
               <div>
                 <p className="text-3xl font-bold text-brand-primary">100%</p>
@@ -165,14 +161,6 @@ export default function Hero() {
     </div>
 
     {/* Floating Badge */}
-    <motion.div
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 3, repeat: Infinity }}
-      className="absolute top-8 right-8 bg-white p-5 rounded-xl shadow-lg z-10"
-    >
-      <p className="text-3xl font-bold text-brand-primary">15+</p>
-      <p className="text-xs text-gray-600 font-medium">Years Warranty</p>
-    </motion.div>
   </div>
 </motion.div>
 
