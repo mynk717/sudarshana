@@ -4,7 +4,7 @@ export const siteConfig = {
   name: 'Sudarshana Profile Sheets',
   description: 'Leading manufacturer of custom trapezoidal color-coated metal profile sheets and shed solutions in Raipur, Chhattisgarh. 15+ years warranty, 500+ projects completed.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://sudarshanaprofile.com',
-  ogImage: '/og-image.jpg',
+  ogImage: '/images/products/trapezoidal.png',
   keywords: [
     'metal profile sheets Raipur',
     'color coated roofing Chhattisgarh',
