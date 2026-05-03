@@ -5,7 +5,7 @@ export const images = {
   
   hero: {
     // Industrial metal roofing/construction
-    main: "/images/products/colorSheetHome.png",
+    main: "/images/hero/slider0.png",
     slides: [
       "/images/hero/ridgeSlider1.png", // Metal construction
       "/images/hero/shedSlider3.png", // Steel structure

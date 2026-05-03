@@ -1,172 +1,278 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { fadeInUp, slideInLeft, slideInRight } from '@/app/lib/utils/animations';
-import { heroContent, businessInfo } from '@/app/lib/constants/content';
+import { heroContent } from '@/app/lib/constants/content';
 import Image from 'next/image';
 import { images } from '@/app/lib/constants/images';
-import { ArrowRight, Shield, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
+
+const allSlides = [images.hero.main, ...images.hero.slides];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = [images.hero.main, ...images.hero.slides].length;
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5000);
+      setDirection(1);
+      setCurrentSlide((prev) => (prev + 1) % allSlides.length);
+    }, 4500);
     return () => clearInterval(interval);
-  }, [totalSlides]);
+  }, []);
+
+  const goTo = (index: number) => {
+    setDirection(index > currentSlide ? 1 : -1);
+    setCurrentSlide(index);
+  };
+
+  // FIND and REPLACE the entire slideVariants object:
+
+const slideVariants = {
+  enter: (dir: number) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.7, ease: 'easeInOut' as const },
+  },
+  exit: (dir: number) => ({
+    x: dir > 0 ? '-100%' : '100%',
+    opacity: 0,
+    transition: { duration: 0.5, ease: 'easeInOut' as const },
+  }),
+};
   return (
-    <section id="home" className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(30deg, #1e40af 12%, transparent 12.5%, transparent 87%, #1e40af 87.5%, #1e40af),
-                           linear-gradient(150deg, #1e40af 12%, transparent 12.5%, transparent 87%, #1e40af 87.5%, #1e40af)`,
-          backgroundSize: '80px 140px'
-        }}></div>
-      </div>
+    <section id="home" className="relative bg-[#f5f1eb] overflow-hidden min-h-[85vh] lg:min-h-[90vh] flex flex-col">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Content */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={slideInLeft}
+      {/* ── MOBILE: Stacked layout ── */}
+      <div className="lg:hidden flex flex-col flex-1">
+
+        {/* Image first on mobile — full width, cinematic */}
+        <div className="relative w-full h-[52vw] min-h-[220px] max-h-[360px] overflow-hidden">
+          <AnimatePresence custom={direction} initial={false}>
+            <motion.div
+              key={currentSlide}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="absolute inset-0"
+            >
+              <Image
+                src={allSlides[currentSlide]}
+                alt={`Sudarshana roofing ${currentSlide + 1}`}
+                fill
+                priority={currentSlide === 0}
+                className={currentSlide === 0 ? "object-contain bg-white" : "object-cover"}
+                sizes="100vw"
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Gradient fade into cream background */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#f5f1eb] to-transparent" />
+
+          {/* Slide dots */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {allSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Slide ${i + 1}`}
+                className={`rounded-full transition-all duration-300 ${
+                  i === currentSlide
+                    ? 'w-5 h-2 bg-brand-primary'
+                    : 'w-2 h-2 bg-gray-400/60 hover:bg-gray-500'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Text below image on mobile */}
+        <div className="flex flex-col justify-center px-5 pt-5 pb-8">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-primary mb-3"
           >
-            {/* Trust Badge */}
-            <motion.div 
-              variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full mb-6 border border-green-100"
-            >
-              <Shield className="w-4 h-4" />
-              <span className="text-sm font-semibold">ISO Certified • Trusted Since 2023</span>
-              </motion.div>
+            Raipur, Chhattisgarh
+          </motion.p>
 
-            {/* Main Heading */}
-            <motion.h1 
-              variants={fadeInUp}
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight leading-tight"
-            >
-              {heroContent.headline}
-            </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-heading text-[2.1rem] font-bold text-gray-900 leading-[1.08] tracking-tight mb-4"
+          >
+            Roofing Sheets Built for Real Projects
+          </motion.h1>
 
-            {/* Subheading */}
-            <motion.p 
-              variants={fadeInUp}
-              className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl"
-            >
-              {heroContent.subheadline}
-            </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-sm text-gray-500 leading-relaxed mb-6 max-w-sm"
+          >
+            Authorised dealer of TATA Steel & APL Apollo. Custom colour-coated sheets for homes, sheds, warehouses — delivered PAN India.
+          </motion.p>
 
-            {/* Key Features */}
-            <motion.div 
-              variants={fadeInUp}
-              className="flex flex-wrap gap-4 mb-8"
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col gap-3"
+          >
+            <a
+              href="#contact"
+              className="inline-flex min-h-[50px] items-center justify-center px-6 bg-brand-primary text-black font-semibold rounded-xl active:scale-[0.97] transition-all gap-2 group text-sm"
             >
-              {[
-                'Custom Dimensions',
-                'Rust Protection',
-                'PAN India Service'
-              ].map((feature) => (
-                <div key={feature} className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  <span className="text-sm font-medium">{feature}</span>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div 
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-4"
+              Get Free Quote
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="tel:+917000892760"
+              className="inline-flex min-h-[50px] items-center justify-center px-6 bg-white text-gray-900 font-semibold rounded-xl border border-gray-200 active:scale-[0.97] transition-all gap-2 text-sm"
             >
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-brand-primary text-black font-semibold rounded-lg shadow-lg hover:bg-brand-primary/90 hover:shadow-xl transition-all active:scale-95 gap-2 group"
-              >
-                Get Free Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#products"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-primary font-semibold rounded-lg shadow-md hover:shadow-lg transition-all active:scale-95 border-2 border-brand-primary"
-              >
-                View Products
-              </a>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div 
-              variants={fadeInUp}
-              className="grid grid-cols-2 gap-6 mt-12 pt-8 border-t border-gray-200"
-            >
-              <div>
-                <p className="text-3xl font-bold text-brand-primary">500+</p>
-                <p className="text-sm text-gray-600 mt-1">Projects Done</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-brand-primary">100%</p>
-                <p className="text-sm text-gray-600 mt-1">Quality</p>
-              </div>
-            </motion.div>
+              <Phone className="w-4 h-4" />
+              +91 70008 92760
+            </a>
           </motion.div>
+        </div>
 
-          {/* Right Visual */}
-<motion.div
-  initial="hidden"
-  animate="visible"
-  variants={slideInRight}
-  className="hidden lg:block relative"
->
-  <div className="relative aspect-[4/3] max-h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
-    
-    {/* Slider Images */}
-    {[images.hero.main, ...images.hero.slides].map((slide, index) => (
-      <motion.div
-        key={index}
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: index === currentSlide ? 1 : 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Image
-          src={slide}
-          alt={`Sudarshana Profile Sheets roofing solution ${index + 1}`}
-          fill
-          className={index === 0 ? "object-contain" : "object-cover"}
-          priority={index === 0}
-          sizes="50vw"
-        />
-      </motion.div>
-    ))}
-
-    {/* Dot Navigation */}
-    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-      {[images.hero.main, ...images.hero.slides].map((_, index) => (
-        <button
-          key={index}
-          onClick={() => setCurrentSlide(index)}
-          className={`rounded-full transition-all duration-300 ${
-            index === currentSlide
-              ? "w-6 h-3 bg-white shadow-lg"
-              : "w-3 h-3 bg-white/50 hover:bg-white"
-          }`}
-        />
-      ))}
-    </div>
-
-    {/* Floating Badge */}
-  </div>
-</motion.div>
-
-
+        {/* Mobile proof strip */}
+        <div className="grid grid-cols-3 border-t border-gray-200 mt-auto">
+          {[
+            { value: '500+', label: 'Projects' },
+            { value: 'TATA & APL', label: 'Authorised' },
+            { value: 'PAN India', label: 'Delivery' },
+          ].map((stat, i) => (
+            <div key={i} className={`py-4 text-center ${i < 2 ? 'border-r border-gray-200' : ''}`}>
+              <p className="text-sm font-bold text-gray-900">{stat.value}</p>
+              <p className="text-[10px] text-gray-400 uppercase tracking-wide mt-0.5">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* ── DESKTOP: Diagonal split ── */}
+      <div className="hidden lg:flex flex-1 items-stretch min-h-[90vh]">
+
+        {/* Left: Text */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={slideInLeft}
+          className="relative z-10 flex flex-col justify-center w-[50%] xl:w-[48%] px-12 xl:px-20 2xl:px-28 py-24"
+        >
+          <motion.p variants={fadeInUp} className="text-xs font-bold uppercase tracking-[0.22em] text-brand-primary mb-5">
+            Raipur, Chhattisgarh
+          </motion.p>
+
+          <motion.h1
+            variants={fadeInUp}
+            className="font-heading text-[clamp(2.8rem,4vw,4.2rem)] font-bold text-gray-900 leading-[1.05] tracking-tight mb-6"
+          >
+            Roofing Sheets Built for Real Projects
+          </motion.h1>
+
+          <motion.p variants={fadeInUp} className="text-base xl:text-lg text-gray-500 leading-relaxed max-w-md mb-10">
+            Authorised dealer of TATA Steel & APL Apollo. Custom colour-coated profile sheets for homes, sheds, warehouses — delivered PAN India.
+          </motion.p>
+
+          <motion.div variants={fadeInUp} className="flex gap-4 mb-14">
+            <a
+              href="#contact"
+              className="inline-flex min-h-[50px] items-center justify-center px-7 bg-brand-primary text-black font-semibold rounded-xl hover:bg-brand-primary/90 active:scale-[0.97] transition-all gap-2 group text-sm"
+            >
+              Get Free Quote
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="tel:+917000892760"
+              className="inline-flex min-h-[50px] items-center justify-center px-7 bg-white text-gray-900 font-semibold rounded-xl border border-gray-200 hover:bg-gray-50 active:scale-[0.97] transition-all gap-2 text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              +91 70008 92760
+            </a>
+          </motion.div>
+
+          {/* Stat row */}
+          <motion.div variants={fadeInUp} className="flex gap-10 pt-7 border-t border-gray-200">
+            {[
+              { value: '500+', label: 'Projects Done' },
+              { value: 'PAN India', label: 'Delivery' },
+              { value: '100%', label: 'Quality Assured' },
+            ].map((s, i) => (
+              <div key={i}>
+                <p className="text-2xl font-bold text-gray-900">{s.value}</p>
+                <p className="text-xs text-gray-400 uppercase tracking-wide mt-1">{s.label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Right: Diagonal image with animated slider */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={slideInRight}
+          className="absolute right-0 top-0 bottom-0 w-[56%]"
+          style={{ clipPath: 'polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+        >
+          <AnimatePresence custom={direction} initial={false}>
+            <motion.div
+              key={currentSlide}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="absolute inset-0"
+            >
+              <Image
+                src={allSlides[currentSlide]}
+                alt={`Sudarshana roofing solution ${currentSlide + 1}`}
+                fill
+                priority={currentSlide === 0}
+                className={currentSlide === 0 ? "object-contain bg-gray-50" : "object-cover"}
+                sizes="56vw"
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Blend with left panel */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f5f1eb]/70 via-transparent to-transparent pointer-events-none" />
+
+          {/* Slide dots */}
+          <div className="absolute bottom-8 right-10 flex gap-2 z-10">
+            {allSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Slide ${i + 1}`}
+                className={`rounded-full transition-all duration-300 ${
+                  i === currentSlide
+                    ? 'w-6 h-2.5 bg-brand-primary shadow-sm'
+                    : 'w-2.5 h-2.5 bg-white/50 hover:bg-white'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Slide counter */}
+          <div className="absolute top-8 right-10 z-10">
+            <span className="text-white/60 text-xs font-mono tabular-nums">
+              {String(currentSlide + 1).padStart(2, '0')} / {String(allSlides.length).padStart(2, '0')}
+            </span>
+          </div>
+        </motion.div>
+
+      </div>
+
     </section>
   );
 }
