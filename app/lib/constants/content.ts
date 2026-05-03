@@ -220,21 +220,6 @@ export const products: Product[] = [
     ],
     image: "/images/products/apl-coral-navrang.png",
   },
-  {
-    id: 10,
-    name: "APL Apollo Coil",
-    category: "Roofing Solutions",
-    description:
-      "APL Apollo colour coated coil for roll-forming and custom profile sheet production. High-grade base metal with advanced paint system for excellent forming properties and durability.",
-    colors: "Multiple colour options",
-    applications: [
-      "Profile sheet manufacturing",
-      "Custom roll-forming",
-      "Industrial roofing",
-      "Commercial construction",
-    ],
-    image: "/images/products/apl-coil.png",
-  },
 ];
 
 

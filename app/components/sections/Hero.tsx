@@ -108,8 +108,8 @@ const slideVariants = {
             transition={{ delay: 0.2 }}
             className="font-heading text-[2.1rem] font-bold text-gray-900 leading-[1.08] tracking-tight mb-4"
           >
-            Roofing Sheets Built for Real Projects
-          </motion.h1>
+{heroContent.headline}
+</motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -176,11 +176,11 @@ const slideVariants = {
             variants={fadeInUp}
             className="font-heading text-[clamp(2.8rem,4vw,4.2rem)] font-bold text-gray-900 leading-[1.05] tracking-tight mb-6"
           >
-            Roofing Sheets Built for Real Projects
-          </motion.h1>
+{heroContent.headline}
+</motion.h1>
 
           <motion.p variants={fadeInUp} className="text-base xl:text-lg text-gray-500 leading-relaxed max-w-md mb-10">
-            Authorised dealer of TATA Steel & APL Apollo. Custom colour-coated profile sheets for homes, sheds, warehouses — delivered PAN India.
+          {heroContent.subheadline}
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex gap-4 mb-14">
